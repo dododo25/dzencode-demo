@@ -14,6 +14,7 @@ In order to verify that you installed everything correctly, try to execute in yo
 * <code>git -v</code>
 * <code>docker -v</code>
 * <code>docker-compose -v</code>
+
 If no error were occuring it means that everything is ready for the next stage.
 
 ### Installment
@@ -26,7 +27,7 @@ If no error were occuring it means that everything is ready for the next stage.
 
 ### Running
 1. Open the Terminal, type this command <code>docker-compose up --build</code>, then wait until all containers are creating.
-2. In your browser, open a new tab and type in a URL input field <code>127.0.0.1:8000</code>. You should see this page: ![first page](https://pylessons.com/media/Tutorials/django-website/django-first-app/blobid0.png)
+2. In your browser, open a new tab and type in a URL input field <code>127.0.0.1:8000</code>. You should see this: ![first page](https://pylessons.com/media/Tutorials/django-website/django-first-app/blobid0.png)
 3. Open the Terminal again and type this commands:
 * <code>docker-compose exec web python manage.py makemigrations polls</code>
 * <code>docker-compose exec web python manage.py migrate</code>
