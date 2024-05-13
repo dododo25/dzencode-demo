@@ -13,15 +13,15 @@ class Comment(models.Model):
     response_to = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 
     def clean(self):
-        checked = [self]
+        current = self
 
-        while checked[-1]:
-            response_to = checked[-1].response_to
+        while current:
+            response_to = current.response_to
 
-            if response_to and checked[0].id == response_to.id:
+            if response_to and self.id == response_to.id:
                 raise ValidationError('Loop of comments detected!')
 
-            checked.append(response_to)
+            current = response_to
 
         if self.response_to and self.creation_date < self.response_to.creation_date:
             raise ValidationError('Comment creation time cannot be set before it`s response comment creation time.')
